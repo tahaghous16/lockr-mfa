@@ -110,7 +110,7 @@ const Setup2FA = () => {
 
       <div className="w-full">
         <p className="text-sm font-medium text-slate-700 mb-3 text-center">Enter the 6-digit code from your app</p>
-        <div className="flex justify-between gap-2 mb-6">
+        <div className="flex justify-center gap-1 sm:gap-2 mb-6 w-full">
           {otp.map((digit, index) => (
             <input
               key={index}
@@ -120,7 +120,7 @@ const Setup2FA = () => {
               value={digit}
               onChange={(e) => handleChange(index, e)}
               onKeyDown={(e) => handleKeyDown(index, e)}
-              className="w-12 h-14 text-center text-xl font-bold rounded-xl border border-slate-200 bg-white/50 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all shadow-sm"
+              className="w-10 h-12 sm:w-12 sm:h-14 text-center text-lg sm:text-xl font-bold rounded-xl border border-slate-200 bg-white/50 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all shadow-sm"
             />
           ))}
         </div>

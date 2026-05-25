@@ -34,14 +34,14 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-brand-500/10 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] rounded-full bg-accent-500/10 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto relative z-10">
-        {/* Header */}
-        <header className="flex justify-between items-center mb-10">
+      {/* Header (Fixed Navbar) */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm px-6 py-4">
+        <div className="max-w-4xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="bg-brand-100 text-brand-600 p-2 rounded-xl shadow-sm">
               <Shield size={24} />
@@ -53,10 +53,13 @@ const Home = () => {
             className="flex items-center gap-2 px-4 py-2 bg-white text-slate-700 hover:text-red-600 hover:bg-red-50 rounded-xl transition-colors shadow-sm font-medium border border-slate-200"
           >
             <LogOut size={18} />
-            <span>Logout</span>
+            <span className="hidden sm:inline">Logout</span>
           </button>
-        </header>
+        </div>
+      </header>
 
+      {/* Main Content with top padding to account for fixed header */}
+      <div className="max-w-4xl mx-auto relative z-10 p-6 pt-32">
         {/* Welcome Section */}
         <div className="mb-8">
           <h2 className="text-3xl font-extrabold text-slate-800">
