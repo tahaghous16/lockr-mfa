@@ -62,7 +62,7 @@ const verifyTwoFA = async (req, res) => {
     secret: user.twoFactorSecret,
     encoding: "base32",
     token,
-    window: 1,
+    window: 3, // Increased window to 3 (±1.5 minutes) for production time drift
   });
 
   if (!verified) {
@@ -116,7 +116,7 @@ const verifyLoginOTP = async (req, res) => {
     secret: user.twoFactorSecret,
     encoding: "base32",
     token,
-    window: 1,
+    window: 3, // Increased window to 3 (±1.5 minutes) for production time drift
   });
 
   if (!verified) {

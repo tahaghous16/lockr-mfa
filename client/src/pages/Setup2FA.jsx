@@ -73,7 +73,12 @@ const Setup2FA = () => {
       toast.success(response.data.message || '2FA Enabled Successfully');
       navigate('/login');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Invalid OTP. Please try again.');
+      if (error.response) {
+        toast.error(error.response.data?.message || 'Invalid OTP. Please try again.');
+      } else {
+        console.error('API Error:', error);
+        toast.error('Network error: ' + error.message);
+      }
       setLoading(false);
     }
   };

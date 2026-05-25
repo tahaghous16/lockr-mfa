@@ -67,7 +67,12 @@ const VerifyLoginOTP = () => {
       
       navigate('/home');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Invalid OTP. Please try again.');
+      if (error.response) {
+        toast.error(error.response.data?.message || 'Invalid OTP. Please try again.');
+      } else {
+        console.error('API Error:', error);
+        toast.error('Network error: ' + error.message);
+      }
       setLoading(false);
     }
   };
