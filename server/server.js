@@ -14,6 +14,10 @@ dns.setServers(["1.1.1.1", "8.8.8.8"]);
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Server is Working");
+});
+
 // routes
 app.use("/api/auth", userAuthRouter);
 app.use("/api", userAccessRoute);
